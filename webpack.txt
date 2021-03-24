@@ -1,0 +1,124 @@
+Installation task : - 
+------------------------------
+"babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "html-webpack-plugin": "^3.0.7",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.3.1"
+    "babel-polyfill": "^6.26.0"
+
+-------------------------------------------------------
+                 What is Webpack 
+                 ---------------------
+Webpack actually is a module bundle but it is more than that it allows you
+to bundle your code which essentially means that you write your code in multiple files
+and import them.
+
+
+             What is webpack do during Building
+        -------------------------------------------
+webpack do when it is building your code if it realize that this file 
+needs that file and it is goona get that file and it goona create that big chunk.
+
+
+           What Webpack do others than this
+        ----------------------------------------
+example - : It minify css and javascript and minify static assets.
+
+
+           What webpack internally use
+        ---------------------------------
+    
+    it internally make use of custom loaders
+
+    for Example - : babel loader to allow us to translate your javascript code
+                   from es5 to es6 which most of the browsers can understand .
+                   So can do lot of things with loaders and plugin.
+
+
+
+               What happens internally in webpack ?
+        --------------------------------------------------
+* By default webpack create main.js 
+
+
+when  entry executed (treeshaking algorithm)
+-----------------------------------------------------
+first webpack go to the bundles and it recursively resolved its own import
+and once it done creating that whole kind of tree . you can think of tree of imports
+its going to get file compile it down into one to end and put it into inside your bundle js.
+
+when we need output
+---------------------------
+
+//to avoid this we import absolute pacakage
+    //path: '/user/dev/desktop/webpack'
+
+
+webpack split outs a file called main.js inside dist folder directory.we do not
+have control of either the name of file or where it is created so we obviously
+we need to have control so we obviously we need to have control so how do we 
+get that so we get that using output loaders.
+
+
+install web dev-server: npm i webpack-dev-server@3.1.1 --save-dev
+Requirement for webpack dev server
+---------------------------------------
+webpack dev-server which will automatically bundle all the our javascript files,
+and then reload the app in a browser.
+
+
+
+what contentBase in dev-server
+-----------------------------------
+In here we will specify the folder from which webpack should serve our files.
+
+
+Concept of plugin(it automatically add script also)
+--------------------------------------------------------
+So Basically plugin allow us to do complex processing of our input file and in this case 
+of our src index.html file 
+
+we want to transfer my src index.html into dist index.file So webpack allows to 
+do us and automatically add js  script into it. So In order to do something we use
+something called us plugin
+
+
+                      babel in javascript
+                -----------------------------------
+babel is compiler that compile es6 ---> es5
+
+it is also a loader in webpack .loader allow us to load all the different files
+and more importantly and also process converting thing like es6 --> es5
+
+install -: npm i babel-core@6.26.0  babel-preset-env@1.6.1 babel-loader@7.1.4 --save-dev
+           npm install babel-polyfill@6.26.0 --save
+
+           how to configure babel file
+        -----------------------------------
+step -1 : first we config into webpack.config.js
+step -2: then we create .babelrc
+step-3: there ar something which we cannot convert because 
+        they are not present in es5 javascript .for these 
+        we need to be babel polyfill .
+
+        Example -: I am talking about like promises these things are not 
+                   present in es6 so we need to be polyfilled.
+
+
+babel-core : core functionalities compiler.
+babel-preset-env : that will take care all modern js features convert back to es5
+babel-loader: this is the one of the needed webpack in order to load babel-file.
+babel-polyfill : this is for whose things not convert to es5.
+
+
+rules: rules receive an array of loader that we want to use.
+
+
+
+//OOD Design i large scale system
+Design linkedin
+Design facebook newsfeed
+Design Mutlti  levelcache
